@@ -1,0 +1,15 @@
+.card{
+    max-width: 30rem;
+    border-radius: 5px;
+    background-color: var(--white-color);
+    margin-bottom: 1.5rem;
+
+    .card__body{
+
+        .card__body--summary{
+            display: flex;
+            gap: 3rem;    
+        }
+    }
+
+}

@@ -1,4 +1,4 @@
-type Job = {
+export type Job = {
     id: number,
     company: string,
     logo: string,
@@ -14,9 +14,9 @@ type Job = {
     tools: string[]
 }
 
-type JobFilter = {
-    role: string,
-    level: string,
+export type JobFilters = {
+    roles: string[],
+    levels: string[],
     languages: string[],
     tools: string[]
 }
@@ -24,14 +24,15 @@ type JobFilter = {
 
 
 // Filters
-type Filters = "ROLE" | "LEVEL" | "LANGUAGES" | "TOOLS"
+export type Filters = "ROLE" | "LEVEL" | "LANGUAGES" | "TOOLS"
 
-type FilterAction = {
+export type FilterAction = {
     type: Filters,
-    value: string | string[]
+    value: string,
+    isRemove?: boolean;
 }
 
-type FilterState = {
+export type FilterState = {
     role: string[],
     level: string[],
     languages: string[],

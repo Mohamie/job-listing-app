@@ -1,7 +1,8 @@
 import "../css/JobList.scss"
+import { FilterAction, Job } from "../types";
 
-const JobList = (props: {job: Job}) => {
-    const {job} = props;
+const JobList = (props: {job: Job, setFilter: React.Dispatch<FilterAction>}) => {
+    const {job, setFilter} = props;
 
     return <>
         <div className="card">
@@ -20,26 +21,28 @@ const JobList = (props: {job: Job}) => {
                 </ul>
             </div>
             <div className="card__footer">
-                <Jobfilters 
-                    role={job.role}
-                    level={job.level}
-                    languages={job.languages}
-                    tools={job.tools}
-                />
+                <hr />
+                <div className="filters">
+                    <button onClick={() => setFilter({type: "ROLE", value: job.role})}>
+                        {job.role}
+                    </button>
+                    <button onClick={() => setFilter({type: "LEVEL", value: job.level})}>
+                        {job.level}
+                    </button>
+                    {
+                        job.languages.map(language => <button key={language} 
+                            onClick={() => setFilter({type: "LANGUAGES", value: language})}>
+                            {language}
+                        </button>)
+                    }
+                    {
+                        job.tools.map(tool => <button key={tool}
+                            onClick={() => setFilter({type: "TOOLS", value: tool})}>
+                            {tool}
+                        </button>)
+                    }
+                </div>
             </div>
-        </div>
-    </>
-}
-
-const Jobfilters = (props: JobFilter) => {
-
-    return <>
-        <hr />
-        <div className="filters">
-            <button>{props.role}</button>
-            <button>{props.level}</button>
-            {props.languages.map(language => <button>{language}</button>)}
-            {props.tools.map(tool => <button>{tool}</button>)}
         </div>
     </>
 }

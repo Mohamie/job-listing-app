@@ -1,3 +1,16 @@
 .app{
   margin: 0 auto;
 }
+
+.pill{
+  display: flex;
+  gap: 1.5rem;
+  height: 2rem;
+  background-color: var(--text-secondary-color);
+  width: fit-content;
+  margin: 0;
+
+  p{
+    margin: 0;
+  }
+}

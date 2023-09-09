@@ -24,7 +24,7 @@ export type JobFilters = {
 
 
 // Filters
-export type Filters = "ROLE" | "LEVEL" | "LANGUAGES" | "TOOLS"
+export type Filters = "ROLE" | "LEVEL" | "LANGUAGES" | "TOOLS" | "CLEAR"
 
 export type FilterAction = {
     type: Filters,

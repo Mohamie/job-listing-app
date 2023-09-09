@@ -1,16 +1,25 @@
+
 .app{
-  margin: 0 auto;
-}
-
-.pill{
   display: flex;
-  gap: 1.5rem;
-  height: 2rem;
-  background-color: var(--text-secondary-color);
-  width: fit-content;
-  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 0 auto;
 
-  p{
-    margin: 0;
+  .page_header{
+    position: relative;
+    width: 100vw;
+    height: 15rem;
+    margin-bottom: 5rem;
+    background-image: url("/src/assets/bg-header-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--text-secondary-color);
+
+    &:has(.filters-pills){
+      margin-bottom: 10rem;
+    }
   }
 }
+

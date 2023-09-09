@@ -11,19 +11,15 @@ export const useJobFilters = () => {
     
     const [jobFilters, setJobfilter] = useReducer(filterReducer, initialFilters);
 
-    const isFilterActive = () => {
-        return jobFilters.roles.length > 0 || 
+    const isFilterActive = jobFilters.roles.length > 0 || 
           jobFilters.levels.length > 0 ||  
           jobFilters.languages.length > 0 ||  
           jobFilters.tools.length > 0  
-    }
       
-    const isNoFilterActive = () => {
-        return jobFilters.roles.length === 0 && 
+    const isNoFilterActive = jobFilters.roles.length === 0 && 
           jobFilters.levels.length === 0 &&  
           jobFilters.languages.length === 0 &&  
           jobFilters.tools.length === 0  
-    }
 
     return { jobFilters, setJobfilter, isFilterActive, isNoFilterActive };
 }
@@ -63,6 +59,9 @@ const filterReducer = (state: JobFilters, action: FilterAction) => {
                 state.roles.filter(role => role !== action.value);
 
             return {...state, tools}
+        
+        case "CLEAR":
+            return {roles: [], levels: [], languages: [], tools: []}
         
         default:
             return {...state}

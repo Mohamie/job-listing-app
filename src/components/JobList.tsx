@@ -5,13 +5,13 @@ const JobList = (props: {job: Job, setFilter: React.Dispatch<FilterAction>}) => 
     const {job, setFilter} = props;
 
     return <>
-        <div className="card">
+        <div className={`card ${job.featured ? '--featured': ''}`}>
             <div className="card__body">
                 <img className="card__img" src={`src/assets/${job.logo}`} alt="" />
                 <div className="card__body--header">
                     <h2 className="company_name">{job.company}</h2>
-                    <p className="new">new!</p>
-                    <p className="featured">featured</p>
+                    {job.new && <p className="new">new!</p>}
+                    {job.featured && <p className="featured">featured</p>}
                 </div>
                 <p className="card__body--description">{job.position}</p>
                 <ul className="card__body--summary">

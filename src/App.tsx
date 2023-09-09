@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
 
-    if(isFilterActive()){
+    if(isFilterActive){
       const filteredList = staticJobListings.filter(job => 
           jobFilters.roles.includes(job.role) ||
           jobFilters.levels.includes(job.level) ||
@@ -24,7 +24,7 @@ function App() {
       setJobList(filteredList);
     }
 
-    if(isNoFilterActive()){
+    if(isNoFilterActive){
       setJobList(staticJobListings);
     }
 
@@ -32,18 +32,22 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        {jobFilters && <JobFilterPills filters={jobFilters} setFilters={setJobfilter}/>}
-        {
-          jobList.map(job => 
-            <JobList
-              key={job.id} 
-              job={job} 
-              setFilter={setJobfilter}
-            />
-          )
-        }
-      </div>
+      <main className="app">
+        <div className="page_header">
+          {jobFilters && <JobFilterPills active={isFilterActive} filters={jobFilters} setFilters={setJobfilter}/>}
+        </div>
+        <section>
+          {
+            jobList.map(job => 
+              <JobList
+                key={job.id} 
+                job={job} 
+                setFilter={setJobfilter}
+              />
+            )
+          }
+        </section>
+      </main>
     </>
   )
 }

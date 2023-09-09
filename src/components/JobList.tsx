@@ -8,17 +8,19 @@ const JobList = (props: {job: Job, setFilter: React.Dispatch<FilterAction>}) => 
         <div className={`card ${job.featured ? '--featured': ''}`}>
             <div className="card__body">
                 <img className="card__img" src={`src/assets/${job.logo}`} alt="" />
-                <div className="card__body--header">
-                    <h2 className="company_name">{job.company}</h2>
-                    {job.new && <p className="new">new!</p>}
-                    {job.featured && <p className="featured">featured</p>}
+                <div className="card__body--content">
+                    <div className="card__body--header">
+                        <h2 className="company_name">{job.company}</h2>
+                        {job.new && <p className="new">new!</p>}
+                        {job.featured && <p className="featured">featured</p>}
+                    </div>
+                    <p className="card__body--description">{job.position}</p>
+                    <ul className="card__body--summary">
+                        <li>{job.postedAt}</li>
+                        <li>{job.contract}</li>
+                        <li>{job.location}</li>
+                    </ul>
                 </div>
-                <p className="card__body--description">{job.position}</p>
-                <ul className="card__body--summary">
-                    <li>{job.postedAt}</li>
-                    <li>{job.contract}</li>
-                    <li>{job.location}</li>
-                </ul>
             </div>
             <div className="card__footer">
                 <hr />

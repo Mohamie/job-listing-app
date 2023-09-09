@@ -11,6 +11,11 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+
+    @media(min-width: 1024px){
+      width: 80rem;
+    }
 
     .filters-pills{
       display: flex;
@@ -30,6 +35,7 @@
           margin: 0 .5rem;
           color: var(--text-secondary-color);
           font-weight: 700;
+          cursor: default;
         }
       
         .icon_wrapper{
@@ -41,6 +47,11 @@
           background-color: var(--text-secondary-color);
           border-top-right-radius: .5rem;
           border-bottom-right-radius: .5rem;
+          cursor: pointer;
+
+          &:hover{
+            background-color: var(--text-primary-color);
+          }
       
           .icon{
             width: 1.5rem;
@@ -52,5 +63,11 @@
     p{
       color: var(--text-grey-color);
       font-weight: 700;
+      cursor: pointer;
+
+      &:hover{
+        color: var(--text-secondary-color);
+        text-decoration: underline;
+      }
     }
   }

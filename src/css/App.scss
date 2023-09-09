@@ -17,6 +17,10 @@
     background-size: cover;
     background-color: var(--text-secondary-color);
 
+    @media(min-width: 1024px){
+      background-image: url("/src/assets/bg-header-desktop.svg");
+    }
+
     &:has(.filters-pills){
       margin-bottom: 10rem;
     }

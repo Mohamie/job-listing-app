@@ -16,12 +16,8 @@ export const useJobFilters = () => {
           jobFilters.languages.length > 0 ||  
           jobFilters.tools.length > 0  
       
-    const isNoFilterActive = jobFilters.roles.length === 0 && 
-          jobFilters.levels.length === 0 &&  
-          jobFilters.languages.length === 0 &&  
-          jobFilters.tools.length === 0  
 
-    return { jobFilters, setJobfilter, isFilterActive, isNoFilterActive };
+    return { jobFilters, setJobfilter, isFilterActive };
 }
 
 
@@ -56,7 +52,7 @@ const filterReducer = (state: JobFilters, action: FilterAction) => {
             const tools = !action.isRemove ? 
                 Array.from(new Set([...state.tools, action.value]))
                 :
-                state.roles.filter(role => role !== action.value);
+                state.tools.filter(tool => tool !== action.value);
 
             return {...state, tools}
         

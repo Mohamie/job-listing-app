@@ -9,26 +9,38 @@ const staticJobListings = getJobListings();
 
 function App() {
   const [jobList, setJobList] = useState(staticJobListings);
-  const {jobFilters, setJobfilter, isFilterActive, isNoFilterActive} = useJobFilters();
+  const {jobFilters, setJobfilter, isFilterActive} = useJobFilters();
+
+  const filterList = () => {
+    let list = staticJobListings;
+
+    if(jobFilters.roles.length){
+      list = list.filter(job => jobFilters.roles.includes(job.role))
+    }
+    
+    if(jobFilters.levels.length){
+      list = list.filter(job => jobFilters.levels.includes(job.level))
+    }
+    
+    if(jobFilters.languages.length){
+      list = list.filter(job => 
+        jobFilters.languages.filter(lang => job.languages.includes(lang)).length === jobFilters.languages.length
+      )
+    }
+    
+    if(jobFilters.tools.length){
+      list = list.filter(job =>
+        jobFilters.tools.filter(tool => job.tools.includes(tool)).length === jobFilters.tools.length
+      )
+    }
+
+    setJobList(list);
+  }
 
   useEffect(() => {
-
-    if(isFilterActive){
-      const filteredList = staticJobListings.filter(job => 
-          jobFilters.roles.includes(job.role) ||
-          jobFilters.levels.includes(job.level) ||
-          job.languages.filter(lang => jobFilters.languages.includes(lang)).length || 
-          job.tools.filter(tool => jobFilters.tools.includes(tool)).length 
-      );
-  
-      setJobList(filteredList);
-    }
-
-    if(isNoFilterActive){
-      setJobList(staticJobListings);
-    }
-
+    filterList();
   }, [jobFilters]);
+
 
   return (
     <>

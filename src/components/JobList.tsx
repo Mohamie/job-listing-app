@@ -7,7 +7,7 @@ const JobList = (props: {job: Job, setFilter: React.Dispatch<FilterAction>}) => 
     return <>
         <div className={`card ${job.featured ? '--featured': ''}`}>
             <div className="card__body">
-                <img className="card__img" src={`src/assets/${job.logo}`} alt="" />
+                <img className="card__img" src={job.logo} alt="" />
                 <div className="card__body--content">
                     <div className="card__body--header">
                         <h2 className="company_name">{job.company}</h2>

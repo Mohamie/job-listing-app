@@ -1,8 +1,10 @@
+import JobSVGs from "../assets";
+
 export const getJobListings = () => [
     {
       "id": 1,
       "company": "Photosnap",
-      "logo": "photosnap.svg",
+      "logo": JobSVGs.photosnap,
       "new": true,
       "featured": true,
       "position": "Senior Frontend Developer",
@@ -17,7 +19,7 @@ export const getJobListings = () => [
     {
       "id": 2,
       "company": "Manage",
-      "logo": "manage.svg",
+      "logo": JobSVGs.manage,
       "new": true,
       "featured": true,
       "position": "Fullstack Developer",
@@ -32,7 +34,7 @@ export const getJobListings = () => [
     {
       "id": 3,
       "company": "Account",
-      "logo": "account.svg",
+      "logo": JobSVGs.account,
       "new": true,
       "featured": false,
       "position": "Junior Frontend Developer",
@@ -47,7 +49,7 @@ export const getJobListings = () => [
     {
       "id": 4,
       "company": "MyHome",
-      "logo": "myhome.svg",
+      "logo": JobSVGs.myhome,
       "new": false,
       "featured": false,
       "position": "Junior Frontend Developer",
@@ -62,7 +64,7 @@ export const getJobListings = () => [
     {
       "id": 5,
       "company": "Loop Studios",
-      "logo": "loop-studios.svg",
+      "logo": JobSVGs["loop-studios"],
       "new": false,
       "featured": false,
       "position": "Software Engineer",
@@ -77,7 +79,7 @@ export const getJobListings = () => [
     {
       "id": 6,
       "company": "FaceIt",
-      "logo": "faceit.svg",
+      "logo": JobSVGs.faceit,
       "new": false,
       "featured": false,
       "position": "Junior Backend Developer",
@@ -92,7 +94,7 @@ export const getJobListings = () => [
     {
       "id": 7,
       "company": "Shortly",
-      "logo": "shortly.svg",
+      "logo": JobSVGs.shortly,
       "new": false,
       "featured": false,
       "position": "Junior Developer",
@@ -107,7 +109,7 @@ export const getJobListings = () => [
     {
       "id": 8,
       "company": "Insure",
-      "logo": "insure.svg",
+      "logo": JobSVGs.insure,
       "new": false,
       "featured": false,
       "position": "Junior Frontend Developer",
@@ -122,7 +124,7 @@ export const getJobListings = () => [
     {
       "id": 9,
       "company": "Eyecam Co.",
-      "logo": "eyecam-co.svg",
+      "logo": JobSVGs["eyecam-co"],
       "new": false,
       "featured": false,
       "position": "Full Stack Engineer",
@@ -137,7 +139,7 @@ export const getJobListings = () => [
     {
       "id": 10,
       "company": "The Air Filter Company",
-      "logo": "the-air-filter-company.svg",
+      "logo": JobSVGs["the-air-filter-company"],
       "new": false,
       "featured": false,
       "position": "Front-end Dev",
